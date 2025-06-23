@@ -41,16 +41,7 @@ const { mutate, isPending } = useMutation({
 	});
 
 const handleSubmit = ( values: CreateNote ) => {
-  mutate(values, {
-    onSuccess: () => {
-      onClose();
-      queryClient.invalidateQueries({ queryKey: ["notes"] });
-    },
-    onError: (error) => {
-      console.error("Failed to create note:", error);
-      alert("Failed to create note. Please try again.");
-    },
-  });
+  mutate(values);
 };
 
   
